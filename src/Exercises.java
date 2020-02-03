@@ -36,7 +36,6 @@ public class Exercises {
 			index++;
 		}
 
-
 		return endsMeet;	// default return value to ensure compilation
 	}
 
