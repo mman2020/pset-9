@@ -133,14 +133,37 @@ public class Exercises {
 				return true;
 			}
 		}
-		
+
 		return false;	// default return value to ensure compilation
 	}
 
 	public boolean everywhere(ArrayList<Integer> numbers, int x) {
 		// write your code here
+    if (numbers == null || numbers.size() < 1) {
+			return false;
+		}
 
-		return false;	// default return value to ensure compilation
+		boolean lastPos = false;
+		int gap = 0;
+		for (int i = 0; i < numbers.size(); i++) {
+			if (numbers.get(i) == x) {
+				lastPos = true;
+				gap = 0;
+			} else {
+				if (i == 1 && lastPos == false) {
+					return false;
+				} else if (lastPos == false) {
+					gap++;
+				}
+				lastPos = false;
+			}
+
+			if (gap == 2) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	public boolean consecutive(ArrayList<Integer> numbers) {
