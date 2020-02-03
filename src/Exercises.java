@@ -88,8 +88,23 @@ public class Exercises {
 
 	public ArrayList<String> middle(ArrayList<String> values) {
 		// write your code here
+    if (values == null || values.size() < 3 || values.size() % 2 == 0) {
+			return new ArrayList<String>();
+		}
 
-		return null;	// default return value to ensure compilation
+		for (int i = 0; i < values.size(); i++) {
+			if (values.get(i) == null) {
+				return new ArrayList<String>();
+			}
+		}
+
+		int midIndex = (int)(Math.ceil(values.size() / 2));
+		ArrayList<String> midReturn = new ArrayList<String>();
+		midReturn.add(values.get(midIndex - 1));
+		midReturn.add(values.get(midIndex));
+		midReturn.add(values.get(midIndex + 1));
+
+		return midReturn;
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
