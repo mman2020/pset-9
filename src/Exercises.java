@@ -197,12 +197,32 @@ public class Exercises {
 
 			prevRemainder = remainder;
 		}
-		
+
 		return false;	// default return value to ensure compilation
 	}
 
 	public boolean balance(ArrayList<Integer> numbers) {
 		// write your code here
+    if (numbers == null || numbers.size() < 2) {
+			return false;
+		}
+
+		for (int i = 0; i < numbers.size() - 1; i++) {
+			int jSum = 0;
+			int kSum = 0;
+
+			for (int j = i; j >= 0; j--) {
+				jSum += numbers.get(j);
+			}
+
+			for (int k = i + 1;  k < numbers.size(); k++) {
+				kSum += numbers.get(k);
+			}
+
+			if (jSum == kSum) {
+				return true;
+			}
+		}
 
 		return false;	// default return value to ensure compilation
 	}
